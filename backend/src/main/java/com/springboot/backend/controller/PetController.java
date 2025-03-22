@@ -24,6 +24,7 @@ public class PetController {
 
     @GetMapping("/get/{id}")
     public Pet getPet(@PathVariable long id) {
+<<<<<<< HEAD
         return petService.getPet(id);
     }
 
@@ -52,4 +53,9 @@ public class PetController {
     public List<ShelterPerTypeDTO> getShelterPerType() {
         return petService.getShelterPerType();
     }
+=======
+        return petService.addPet(id);
+    }
+
+>>>>>>> b8f9073beea2dbcb8e5864fa03e71f60a0c19cc9
 }
