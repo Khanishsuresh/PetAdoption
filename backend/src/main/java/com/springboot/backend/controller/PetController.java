@@ -1,9 +1,7 @@
 package com.springboot.backend.controller;
 
-import java.util.List;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import java.util.*;
+import org.springframework.web.bind.annotation.*;
 
 import com.springboot.backend.model.Pet;
 import com.springboot.backend.service.PetService;
@@ -20,6 +18,11 @@ public class PetController {
     @GetMapping("/all")
     public List<Pet> getAllPets() {
         return petService.getAllPets();
+    }
+
+    @GetMapping("/get/{id}")
+    public Pet getPet(@PathVariable long id) {
+        return petService.addPet(id);
     }
 
 }
