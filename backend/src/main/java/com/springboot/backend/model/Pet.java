@@ -22,19 +22,22 @@ public class Pet {
     @Column(nullable = false)
     private String age;
 
+    @Column(nullable = false)
+    private String description;
+
     @ManyToOne
     @JoinColumn(name = "shelter_id")
     @JsonBackReference
     private Shelter shelter;
 
-    public Pet() {
-    }
+    public Pet() {}
 
-    public Pet(String name, String type, String breed, String age, Shelter shelter) {
+    public Pet(String name, String type, String breed, String age, String description, Shelter shelter) {
         this.name = name;
         this.type = type;
         this.breed = breed;
         this.age = age;
+        this.description = description;
         this.shelter = shelter;
     }
 
@@ -77,6 +80,14 @@ public class Pet {
 
     public void setAge(String age) {
         this.age = age;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Shelter getShelter() {

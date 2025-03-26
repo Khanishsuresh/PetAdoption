@@ -22,6 +22,10 @@ public class Inquiry {
     @Column(nullable = false)
     private LocalDateTime inqueryDateTime = LocalDateTime.now();
 
+    @ManyToOne
+    @JoinColumn(name = "pet_id" , nullable = false)
+    private Pet pet;
+
     public Inquiry() {
     }
 
@@ -29,6 +33,7 @@ public class Inquiry {
         this.name = name;
         this.email = email;
         this.message = message;
+        this.pet = pet;
     }
 
     // Getters and Setters
@@ -70,5 +75,13 @@ public class Inquiry {
 
     public void setInqueryDateTime(LocalDateTime inqueryDateTime) {
         this.inqueryDateTime = inqueryDateTime;
+    }
+
+    public Pet getPet() {
+        return pet;
+    }
+
+    public void setPet(Pet pet) {
+        this.pet = pet;
     }
 }

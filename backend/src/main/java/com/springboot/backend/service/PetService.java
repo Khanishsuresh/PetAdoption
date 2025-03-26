@@ -34,6 +34,7 @@ public class PetService {
                     existingPet.setType(pet.getType());
                     existingPet.setBreed(pet.getBreed());
                     existingPet.setAge(pet.getAge());
+                    existingPet.setDescription(pet.getDescription());
                     return petRepository.save(existingPet);
                 })
                 .orElseThrow(() -> new RuntimeException("Pet not found with ID: " + pet.getId()));
