@@ -21,4 +21,8 @@ public class UserService {
     public User addUser(User user) {
         return userRepository.save(user);
     }
+
+    public Optional<User> validateUser(String name , String password) {
+        return userRepository.findByNameAndPassword(name, password);
+    }
 }

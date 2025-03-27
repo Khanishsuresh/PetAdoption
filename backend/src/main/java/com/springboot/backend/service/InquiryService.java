@@ -1,12 +1,13 @@
 package com.springboot.backend.service;
 
-import java.time.LocalDateTime;
 import java.util.List;
+import java.time.LocalDateTime;
 import org.springframework.stereotype.Service;
+import org.springframework.http.ResponseEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.springboot.backend.repository.InquiryRepository;
 import com.springboot.backend.model.Inquiry;
+import com.springboot.backend.repository.InquiryRepository;
 
 @Service
 public class InquiryService {
@@ -38,8 +39,12 @@ public class InquiryService {
                 .orElseThrow(() -> new RuntimeException("Inquiry not found with ID: " + inquiry.getId()));
     }
 
-    public String deleteInquiry(long id) {
-        inquiryRepository.deleteById(id);
-        return "Inquiry removed !! " + id;
+    public ResponseEntity<String> deleteInquiry(long id) {
+        if(inquiryRepository.existsById(id)) {
+            inquiryRepository.deleteById(id);
+            return ResponseEntity.ok("Inquiry removed !! " + id);
+        } else {
+            return ResponseEntity.status(404).body("Inquiry not found with ID: " + id);
+        }
     }
 }

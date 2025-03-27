@@ -3,10 +3,10 @@ package com.springboot.backend.service;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 
 import com.springboot.backend.model.Shelter;
 import com.springboot.backend.repository.ShelterRepository;
-
 @Service
 public class ShelterService {
 
@@ -36,8 +36,12 @@ public class ShelterService {
                 .orElseThrow(() -> new RuntimeException("Shelter not found with ID: " + shelter.getId()));
     }
 
-    public String deleteShelter(long id) {
-        shelterRepository.deleteById(id);
-        return "Shelter removed !! " + id;
+    public ResponseEntity<String> deleteShelter(long id) {
+        if(shelterRepository.existsById(id)){
+            shelterRepository.deleteById(id);
+            return ResponseEntity.ok("Shelter removed !! " + id);
+        } else {
+            return ResponseEntity.status(404).body("Shelter not found with ID: " + id);
+        }
     }
 }

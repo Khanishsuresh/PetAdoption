@@ -9,6 +9,7 @@ public class PetDTO {
     private String breed;
     private String age;
     private String description;
+    private String image;
     private long shelterId;
 
     public PetDTO(Pet pet) {
@@ -18,6 +19,7 @@ public class PetDTO {
         this.breed = pet.getBreed();
         this.age = pet.getAge();
         this.description = pet.getDescription();
+        this.image = pet.getImage();
         this.shelterId = pet.getShelter().getId();
     }
 
@@ -62,6 +64,13 @@ public class PetDTO {
     }
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getImage() {
+        return image;
+    }
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public long getShelterId() {

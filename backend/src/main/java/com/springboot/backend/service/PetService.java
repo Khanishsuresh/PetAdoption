@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import com.springboot.backend.dto.*;
 import org.springframework.stereotype.Service;
+import org.springframework.http.ResponseEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.springboot.backend.model.Pet;
@@ -36,17 +37,18 @@ public class PetService {
                     existingPet.setBreed(pet.getBreed());
                     existingPet.setAge(pet.getAge());
                     existingPet.setDescription(pet.getDescription());
+                    existingPet.setImage(pet.getImage());
                     return petRepository.save(existingPet);
                 })
                 .orElseThrow(() -> new RuntimeException("Pet not found with ID: " + pet.getId()));
     }
 
-    public String deletePet(long id) {
+    public ResponseEntity<String> deletePet(long id) {
         if (petRepository.existsById(id)) {
             petRepository.deleteById(id);
-            return "Pet removed: " + id;
+            return ResponseEntity.ok("Pet removed: " + id);
         } else {
-            return "Pet not found with ID: " + id;
+            return ResponseEntity.status(404).body("Pet not found with ID: " + id);
         }
     }
 

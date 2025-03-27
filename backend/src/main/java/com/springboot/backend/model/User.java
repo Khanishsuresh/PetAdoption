@@ -10,24 +10,24 @@ public class User {
     private Long id;
 
     @Column(nullable = false)
-    private String Name;
+    private String name;
 
     @Column(nullable = false)
-    private String Email;
+    private String email;
 
     @Column(nullable = false)
-    private String Password;
+    private String password;
 
     @Column(nullable = false)
-    private String Role;
+    private String role;
 
     public User() {}
 
     public User(String Name , String Email , String Password , String Role){
-        this.Name = Name;
-        this.Email = Email;
-        this.Password = Password;
-        this.Role = Role;
+        this.name = Name;
+        this.email = Email;
+        this.password = Password;
+        this.role = Role;
     }
 
     // Getter and Setter
@@ -39,30 +39,30 @@ public class User {
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
     public void setName(String name) {
-        this.Name = name;
+        this.name = name;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
     public void setEmail(String email) {
-        this.Email = email;
+        this.email = email;
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
     public void setPassword(String password) {
-        this.Password = password;
+        this.password = password;
     }
 
     public String getRole() {
-        return Role;
+        return role;
     }
     public void setRole(String role) {
-        this.Role = role;
+        this.role = role;
     }
 }

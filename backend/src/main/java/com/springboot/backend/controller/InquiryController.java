@@ -1,45 +1,51 @@
 package com.springboot.backend.controller;
 
 import java.util.*;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.springboot.backend.model.Inquiry;
 import com.springboot.backend.service.InquiryService;
 
 @RestController
-@RequestMapping("/api/inquiry")
+@RequestMapping("/api/inquiries")
 @CrossOrigin(origins = "http://localhost:3000")
 public class InquiryController {
 
+    @Autowired
     private InquiryService inquiryService;
 
-    public InquiryController(InquiryService inquiryService) {
-        this.inquiryService = inquiryService;
+    @GetMapping
+    public ResponseEntity<List<Inquiry>> getAllInquiries() {
+        return ResponseEntity.ok(inquiryService.getAllInquiries());
     }
 
-    @GetMapping("/all")
-    public List<Inquiry> getAllInquiries() {
-        return inquiryService.getAllInquiries();
+    @GetMapping("/{id}")
+    public ResponseEntity<Inquiry> getInquiry(@PathVariable long id) {
+        Inquiry inquiry = inquiryService.getInquiry(id);
+        return inquiry != null ? ResponseEntity.ok(inquiry) : ResponseEntity.status(404).body(null);
     }
 
-    @GetMapping("/get/{id}")
-    public Inquiry getInquiry(@PathVariable long id) {
-        return inquiryService.getInquiry(id);
+    @PostMapping
+    public ResponseEntity<Inquiry> addInquiry(@RequestBody Inquiry inquiry) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(inquiryService.addInquiry(inquiry));
     }
 
-    @PostMapping("/add")
-    public Inquiry addInquiry(@RequestBody Inquiry inquiry) {
-        return inquiryService.addInquiry(inquiry);
-    }
-
-    @PutMapping("/update/{id}")
-    public Inquiry updateInquiry(@PathVariable long id, @RequestBody Inquiry inquiry) {
+    @PutMapping("/{id}")
+    public ResponseEntity<Inquiry> updateInquiry(@PathVariable long id, @RequestBody Inquiry inquiry) {
         inquiry.setId(id);
-        return inquiryService.updateInquiry(inquiry);
+        try {
+            return ResponseEntity.ok(inquiryService.updateInquiry(inquiry));
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(404).body(null);
+        }
     }
 
-    @DeleteMapping("/delete/{id}")
-    public String deleteInquiry(@PathVariable long id) {
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteInquiry(@PathVariable long id) {
         return inquiryService.deleteInquiry(id);
     }
 }

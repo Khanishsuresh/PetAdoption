@@ -25,6 +25,9 @@ public class Pet {
     @Column(nullable = false)
     private String description;
 
+    @Column(nullable = false)
+    private String image;
+
     @ManyToOne
     @JoinColumn(name = "shelter_id")
     @JsonBackReference
@@ -32,12 +35,13 @@ public class Pet {
 
     public Pet() {}
 
-    public Pet(String name, String type, String breed, String age, String description, Shelter shelter) {
+    public Pet(String name, String type, String breed, String age, String description, String image , Shelter shelter) {
         this.name = name;
         this.type = type;
         this.breed = breed;
         this.age = age;
         this.description = description;
+        this.image = image;
         this.shelter = shelter;
     }
 
@@ -82,6 +86,13 @@ public class Pet {
     }
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getImage() {
+        return image;
+    }
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public Shelter getShelter() {
