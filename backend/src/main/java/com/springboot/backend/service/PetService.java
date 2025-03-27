@@ -1,11 +1,12 @@
 package com.springboot.backend.service;
 
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
+
+import com.springboot.backend.dto.*;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.springboot.backend.dto.ShelterPerCountDTO;
-import com.springboot.backend.dto.ShelterPerTypeDTO;
 import com.springboot.backend.model.Pet;
 import com.springboot.backend.repository.PetRepository;
 
@@ -55,5 +56,9 @@ public class PetService {
 
     public List<ShelterPerTypeDTO> getShelterPerType() {
         return petRepository.getShelterPerTypeCount();
+    }
+
+    public List<PetDTO> getAllPetsWithIds() {
+        return petRepository.findAll().stream().map(PetDTO::new).collect(Collectors.toList());
     }
 }

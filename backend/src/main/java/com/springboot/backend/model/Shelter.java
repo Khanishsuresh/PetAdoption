@@ -34,7 +34,6 @@ public class Shelter {
     public long getId() {
         return id;
     }
-
     public void setId(long id) {
         this.id = id;
     }
@@ -42,7 +41,6 @@ public class Shelter {
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -50,7 +48,6 @@ public class Shelter {
     public String getLocation() {
         return location;
     }
-
     public void setLocation(String location) {
         this.location = location;
     }
@@ -58,7 +55,6 @@ public class Shelter {
     public List<Pet> getPets() {
         return pets;
     }
-
     public void setPets(List<Pet> pets) {
         this.pets = pets;
     }

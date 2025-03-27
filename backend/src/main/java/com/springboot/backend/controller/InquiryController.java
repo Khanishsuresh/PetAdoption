@@ -8,6 +8,7 @@ import com.springboot.backend.service.InquiryService;
 
 @RestController
 @RequestMapping("/api/inquiry")
+@CrossOrigin(origins = "http://localhost:3000")
 public class InquiryController {
 
     private InquiryService inquiryService;

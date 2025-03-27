@@ -9,6 +9,7 @@ import com.springboot.backend.service.PetService;
 
 @RestController
 @RequestMapping("/api/pet")
+@CrossOrigin(origins = "http://localhost:3000")
 public class PetController {
 
     private PetService petService;
@@ -51,5 +52,10 @@ public class PetController {
     @GetMapping("/countPerShelterAndType")
     public List<ShelterPerTypeDTO> getShelterPerType() {
         return petService.getShelterPerType();
+    }
+
+    @GetMapping("/allWithIds")
+    public List<PetDTO> getAllPetsWithIds() {
+        return petService.getAllPetsWithIds();
     }
 }

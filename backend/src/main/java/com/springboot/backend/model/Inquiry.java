@@ -40,7 +40,6 @@ public class Inquiry {
     public long getId() {
         return id;
     }
-
     public void setId(long id) {
         this.id = id;
     }
@@ -48,7 +47,6 @@ public class Inquiry {
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -56,7 +54,6 @@ public class Inquiry {
     public String getEmail() {
         return email;
     }
-
     public void setEmail(String email) {
         this.email = email;
     }
@@ -64,7 +61,6 @@ public class Inquiry {
     public String getMessage() {
         return message;
     }
-
     public void setMessage(String message) {
         this.message = message;
     }
@@ -72,7 +68,6 @@ public class Inquiry {
     public LocalDateTime getInqueryDateTime() {
         return inqueryDateTime;
     }
-
     public void setInqueryDateTime(LocalDateTime inqueryDateTime) {
         this.inqueryDateTime = inqueryDateTime;
     }
@@ -80,7 +75,6 @@ public class Inquiry {
     public Pet getPet() {
         return pet;
     }
-
     public void setPet(Pet pet) {
         this.pet = pet;
     }
