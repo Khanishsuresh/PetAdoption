@@ -11,7 +11,7 @@ import com.springboot.backend.service.ShelterService;
 
 @RestController
 @RequestMapping("/api/shelters")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:5173")
 public class ShelterController {
 
     @Autowired

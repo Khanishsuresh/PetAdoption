@@ -1,0 +1,84 @@
+.shelter-details-container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f6f9;
+    min-height: 100vh;
+  }
+  
+  .shelter-header {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .shelter-main-info {
+    flex: 1;
+  }
+  
+  .shelter-name {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+  
+  .shelter-location-info {
+    display: flex;
+    align-items: center;
+    color: #7f8c8d;
+    font-size: 1.1rem;
+  }
+  
+  .location-icon {
+    margin-right: 10px;
+    font-size: 1.2rem;
+  }
+  
+  .shelter-contact-details {
+    flex: 1;
+    text-align: right;
+  }
+  
+  .contact-item {
+    margin-bottom: 10px;
+    color: #34495e;
+  }
+  
+  .contact-item strong {
+    color: #2c3e50;
+    margin-right: 10px;
+  }
+  
+  .shelter-content-placeholder {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    min-height: 300px;
+  }
+  
+  @media (max-width: 768px) {
+    .shelter-header {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .shelter-contact-details {
+      text-align: center;
+      margin-top: 20px;
+    }
+  }
+
+
+  .shelter-pet-listing{
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }

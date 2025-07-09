@@ -12,7 +12,7 @@ import com.springboot.backend.service.InquiryService;
 
 @RestController
 @RequestMapping("/api/inquiries")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:5173")
 public class InquiryController {
 
     @Autowired

@@ -1,0 +1,63 @@
+.shelter-listing-container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f6f9;
+    min-height: 100vh;
+  }
+  
+  .shelter-listing-container h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 2.2rem;
+  }
+  
+  .shelters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  
+  .shelter-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+  .shelter-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .shelter-card-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .shelter-name-info {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .shelter-location {
+    display: flex;
+    align-items: center;
+    color: #7f8c8d;
+  }
+  
+  .location-icon {
+    margin-right: 8px;
+  }
+  
+  @media (max-width: 768px) {
+    .shelters-grid {
+      grid-template-columns: 1fr;
+    }
+  }

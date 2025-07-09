@@ -1,0 +1,106 @@
+.user-enquiries-container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f6f9;
+    min-height: 100vh;
+  }
+  
+  .user-enquiries-container h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+  }
+  
+  .no-enquiries {
+    text-align: center;
+    color: #666;
+    padding: 50px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .enquiries-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .enquiry-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease;
+  }
+  
+  .enquiry-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .enquiry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .enquiry-id {
+    font-weight: bold;
+    color: #4CAF50;
+  }
+  
+  .enquiry-date {
+    color: #666;
+    font-size: 0.9rem;
+  }
+  
+  .enquiry-details {
+    margin-bottom: 15px;
+  }
+  
+  .enquiry-details p {
+    margin: 8px 0;
+    color: #333;
+  }
+  
+  .enquiry-details strong {
+    color: #555;
+    margin-right: 10px;
+  }
+  
+  .enquiry-actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .delete-button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .delete-button:hover {
+    background-color: #d32f2f;
+    transform: scale(1.05);
+  }
+  
+  @media (max-width: 600px) {
+    .user-enquiries-container {
+      padding: 10px;
+    }
+  
+    .enquiry-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+  }

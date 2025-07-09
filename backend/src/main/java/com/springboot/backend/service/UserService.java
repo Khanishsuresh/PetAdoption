@@ -22,7 +22,11 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public Optional<User> validateUser(String name , String password) {
-        return userRepository.findByNameAndPassword(name, password);
+    public Optional<User> validateUser(String email , String password) {
+        return userRepository.findByEmailAndPassword(email, password);
+    }
+
+    public User getUser(String email) {
+        return userRepository.findByEmail(email);
     }
 }

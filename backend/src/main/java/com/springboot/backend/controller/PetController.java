@@ -13,7 +13,7 @@ import com.springboot.backend.service.PetService;
 
 @RestController
 @RequestMapping("/api/pets")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:5173")
 public class PetController {
 
     @Autowired
