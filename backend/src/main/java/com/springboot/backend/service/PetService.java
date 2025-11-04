@@ -26,6 +26,9 @@ public class PetService {
     }
 
     public Pet addPet(Pet pet) {
+        if (pet == null) {
+            throw new IllegalArgumentException("Pet cannot be null");
+        }
         return petRepository.save(pet);
     }
 

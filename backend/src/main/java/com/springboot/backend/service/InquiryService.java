@@ -1,10 +1,11 @@
 package com.springboot.backend.service;
 
-import java.util.List;
 import java.time.LocalDateTime;
-import org.springframework.stereotype.Service;
-import org.springframework.http.ResponseEntity;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
 import com.springboot.backend.model.Inquiry;
 import com.springboot.backend.repository.InquiryRepository;
@@ -24,6 +25,9 @@ public class InquiryService {
     }
 
     public Inquiry addInquiry(Inquiry inquiry) {
+        if (inquiry == null) {
+            throw new IllegalArgumentException("Inquiry cannot be null");
+        }
         return inquiryRepository.save(inquiry);
     }
 

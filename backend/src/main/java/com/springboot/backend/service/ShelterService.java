@@ -22,6 +22,9 @@ public class ShelterService {
     }
 
     public Shelter addShelter(Shelter shelter) {
+        if(shelter == null){
+            throw new IllegalArgumentException("Shelter cannot be null");
+        }
         return shelterRepository.save(shelter);
     }
 
